@@ -12,7 +12,7 @@ const MainChatList = () => {
 
   return (
     <main
-      className="w-[35%] max-[500px]:w-full max-h-screen overflow-y-scroll relative"
+      className="max-h-screen overflow-y-scroll relative"
       style={{
         background: isDarkMode ? "#252D39" : "#fff",
       }}
@@ -46,9 +46,9 @@ const MainChatList = () => {
         </section>
       </header>
 
-      <section className="">
+      <section className="custom-chat-list">
         {allChats?.map((chat) => {
-          return <ChatCard chatInfo={chat} />;
+          return <ChatCard key={chat.id} chatInfo={chat} />;
         })}
       </section>
     </main>

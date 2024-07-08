@@ -1,11 +1,15 @@
 import React from "react";
 import { convertToShortTime } from "../utils/utils";
+import { NavLink } from "react-router-dom";
 
 const ChatCard = ({ chatInfo }) => {
-  const { creator, created_at, msg_count } = chatInfo;
+  const { id, creator, created_at, msg_count } = chatInfo;
 
   return (
-    <main className="flex items-center gap-3 bg-[#1C2732] p-2 hover:bg-[#252D39] cursor-pointer">
+    <NavLink
+      to={`/chat/${id}`}
+      className="flex items-center gap-3 bg-[#1C2732] p-2 hover:bg-[#252D39] cursor-pointer"
+    >
       <span className="rounded-full bg-[#0088CC] w-[60px] h-[50px] flex justify-center items-center text-2xl font-semibold">
         A
       </span>
@@ -25,7 +29,7 @@ const ChatCard = ({ chatInfo }) => {
           </span>
         </div>
       </div>
-    </main>
+    </NavLink>
   );
 };
 

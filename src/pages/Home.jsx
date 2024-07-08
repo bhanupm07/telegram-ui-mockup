@@ -8,7 +8,9 @@ const Home = () => {
 
   return (
     <main className="flex" style={{ color: isDarkMode ? "#fff" : "000" }}>
-      <MainChatList />
+      <div className="w-[35%] max-[500px]:w-full">
+        <MainChatList />
+      </div>
       <div className="max-[500px]:hidden w-[65%] h-screen">
         <ChatComponent />
       </div>

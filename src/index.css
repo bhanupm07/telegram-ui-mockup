@@ -5,3 +5,7 @@
 ::-webkit-scrollbar {
     display: none;
 }
+
+.custom-chat-list a.active {
+    background: #2B5278;
+}
