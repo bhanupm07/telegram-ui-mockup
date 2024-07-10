@@ -19,7 +19,7 @@ const ChatPage = () => {
         <MainChatList />
       </div>
       <div className="w-[65%] max-[500px]:w-full">
-        <ChatComponent />
+        <ChatComponent id={id} />
       </div>
     </main>
   );

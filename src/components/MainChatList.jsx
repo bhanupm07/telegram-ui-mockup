@@ -3,6 +3,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoSearchSharp } from "react-icons/io5";
 import { TelegramContext } from "../context/TelegramContext";
 import ChatCard from "./ChatCard";
+import { Link } from "react-router-dom";
 
 const MainChatList = () => {
   const { isDarkMode, allChats } = useContext(TelegramContext);
@@ -21,7 +22,9 @@ const MainChatList = () => {
         <div className="flex justify-between items-center mx-4">
           <div className="flex items-center gap-5">
             <GiHamburgerMenu />
-            <h1 className="font-semibold">Telegram</h1>
+            <Link to="/" className="font-semibold">
+              Telegram
+            </Link>
           </div>
           <IoSearchSharp />
         </div>

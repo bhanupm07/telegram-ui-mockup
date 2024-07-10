@@ -11,7 +11,7 @@ const ChatCard = ({ chatInfo }) => {
       className="flex items-center gap-3 bg-[#1C2732] p-2 hover:bg-[#252D39] cursor-pointer"
     >
       <span className="rounded-full bg-[#0088CC] w-[60px] h-[50px] flex justify-center items-center text-2xl font-semibold">
-        A
+        B
       </span>
       <div className="w-full text-sm">
         <div className="flex justify-between items-center">
