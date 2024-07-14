@@ -17,7 +17,11 @@ const MainChatList = () => {
   }  text-[#252D39] flex justify-center items-center h-5 px-1 rounded-full`;
 
   return (
-    <main className={`max-h-screen overflow-y-scroll relative`}>
+    <main
+      className={`h-screen overflow-y-scroll relative ${
+        isDarkMode ? "bg-[#1C2732]" : ""
+      }`}
+    >
       <header
         className={`pt-4 sticky top-0 left-0 ${
           isDarkMode ? "bg-[#252D39]" : "bg-[#0088CC]"
