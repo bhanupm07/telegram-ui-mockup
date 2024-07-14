@@ -6,6 +6,18 @@
     display: none;
 }
 
-.custom-chat-list a.active {
+.custom-chat-list.dark a.active {
     background: #2B5278;
+}
+
+.custom-chat-list.light a.active {
+    background: rgba(211, 211, 211, 0.454);
+}
+
+.custom-sidebar {
+    transition: transform 0.3s ease-in-out;
+}
+
+.custom-sidebar.open {
+    transform: translateX(250px);
 }

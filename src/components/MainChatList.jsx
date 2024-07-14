@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoSearchSharp } from "react-icons/io5";
 import { TelegramContext } from "../context/TelegramContext";
@@ -6,22 +6,29 @@ import ChatCard from "./ChatCard";
 import { Link } from "react-router-dom";
 
 const MainChatList = () => {
-  const { isDarkMode, allChats } = useContext(TelegramContext);
+  const { isDarkMode, allChats, setIsHamburgerOpen, isHamburgerOpen } =
+    useContext(TelegramContext);
 
-  const tabStyle = `pb-3 border-b-[3px] border-transparent text-gray-400 font-semibold flex items-center gap-2`;
-  const tabCountStyle = `bg-gray-400 text-[#252D39] flex justify-center items-center h-5 px-1 rounded-full`;
+  const tabStyle = `pb-3 border-b-[3px] border-transparent ${
+    isDarkMode ? "text-gray-400" : "text-white/80"
+  } font-semibold flex items-center gap-2`;
+  const tabCountStyle = `${
+    isDarkMode ? "bg-gray-400/60" : "text-white bg-black/10"
+  }  text-[#252D39] flex justify-center items-center h-5 px-1 rounded-full`;
 
   return (
-    <main
-      className="max-h-screen overflow-y-scroll relative"
-      style={{
-        background: isDarkMode ? "#252D39" : "#fff",
-      }}
-    >
-      <header className="pt-4 sticky top-0 left-0 bg-[#252D39]">
-        <div className="flex justify-between items-center mx-4">
+    <main className={`max-h-screen overflow-y-scroll relative`}>
+      <header
+        className={`pt-4 sticky top-0 left-0 ${
+          isDarkMode ? "bg-[#252D39]" : "bg-[#0088CC]"
+        }`}
+      >
+        <div className="flex justify-between items-center mx-4 text-white">
           <div className="flex items-center gap-5">
-            <GiHamburgerMenu />
+            <GiHamburgerMenu
+              className="cursor-pointer"
+              onClick={() => setIsHamburgerOpen(!isHamburgerOpen)}
+            />
             <Link to="/" className="font-semibold">
               Telegram
             </Link>
@@ -49,7 +56,7 @@ const MainChatList = () => {
         </section>
       </header>
 
-      <section className="custom-chat-list">
+      <section className={`custom-chat-list ${isDarkMode ? "dark" : "light"}`}>
         {allChats?.map((chat) => {
           return <ChatCard key={chat.id} chatInfo={chat} />;
         })}

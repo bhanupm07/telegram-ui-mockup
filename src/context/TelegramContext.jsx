@@ -7,6 +7,7 @@ export const TelegramInfoProvider = ({ children }) => {
   const [allChats, setAllChats] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [selectedChatInfo, setSelectedChatInfo] = useState(null);
+  const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
 
   const fetchAllChats = async () => {
     const response = await fetch(
@@ -32,7 +33,15 @@ export const TelegramInfoProvider = ({ children }) => {
 
   return (
     <TelegramContext.Provider
-      value={{ allChats, isDarkMode, fetchChatById, selectedChatInfo }}
+      value={{
+        allChats,
+        isDarkMode,
+        setIsDarkMode,
+        fetchChatById,
+        selectedChatInfo,
+        isHamburgerOpen,
+        setIsHamburgerOpen,
+      }}
     >
       {children}
     </TelegramContext.Provider>

@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { convertToShortTime } from "../utils/utils";
 import { NavLink } from "react-router-dom";
+import { TelegramContext } from "../context/TelegramContext";
 
 const ChatCard = ({ chatInfo }) => {
   const { id, creator, created_at, msg_count } = chatInfo;
+  const { isDarkMode } = useContext(TelegramContext);
 
   return (
     <NavLink
       to={`/chat/${id}`}
-      className="flex items-center gap-3 bg-[#1C2732] p-2 hover:bg-[#252D39] cursor-pointer"
+      className={`flex items-center gap-3 ${
+        isDarkMode
+          ? "bg-[#1C2732] hover:bg-[#252D39]"
+          : "bg-white text-black hover:bg-gray-100"
+      }  p-2 cursor-pointer`}
     >
-      <span className="rounded-full bg-[#0088CC] w-[60px] h-[50px] flex justify-center items-center text-2xl font-semibold">
+      <span className="rounded-full bg-orange-700 w-[50px] h-[44px] flex justify-center items-center text-2xl font-semibold text-white">
         B
       </span>
       <div className="w-full text-sm">
@@ -24,7 +30,11 @@ const ChatCard = ({ chatInfo }) => {
         </div>
         <div className="flex justify-between">
           <p className="text-gray-400 text-sm">Hello there...</p>
-          <span className="text-white bg-[#323c4b] p-1 px-2 rounded-full">
+          <span
+            className={`text-white ${
+              isDarkMode ? "bg-[#323c4b]" : "bg-black/20"
+            } p-1 px-2 rounded-full`}
+          >
             {msg_count}
           </span>
         </div>

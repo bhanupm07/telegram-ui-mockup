@@ -15,3 +15,9 @@ export function convertToShortTime(dateTimeString) {
 
   return shortTime;
 }
+
+export function formatDate(isoDateString) {
+  const date = new Date(isoDateString);
+  const options = { month: "long", day: "numeric" };
+  return date.toLocaleDateString("en-US", options);
+}
